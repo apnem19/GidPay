@@ -1,0 +1,18 @@
+{
+    "name": "kvash/gidpay",
+    "description": "Пакет платежной системы GidPay.ru",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Kvash\\Gidpay\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "apnem19"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    }
+}
