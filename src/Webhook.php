@@ -1,6 +1,6 @@
 <?php
 
-namespace Kvash\GidPay;
+namespace Kvash\Gidpay;
 
 Class Webhook{
     private $sign;

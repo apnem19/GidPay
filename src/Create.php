@@ -1,5 +1,5 @@
 <?php
-namespace Kvash\GidPay;
+namespace Kvash\Gidpay;
 Class Create {
     private $url;
     private $shop_id;
