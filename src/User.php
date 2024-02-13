@@ -15,6 +15,10 @@ class User {
         return $this->curl("https://gidpay.ru/api/withdrawal", $this->key);
     }
 
+    public function PayMethod(){
+        return $this->curl("https://gidpay.ru/api/method", $this->key);
+    }
+
     
     private function curl($url, $key){
         $curl = curl_init();
