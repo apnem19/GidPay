@@ -6,13 +6,15 @@ Class Create {
     private $invoice;
     private $amount;
     private $public_key;
+    private $customfields;
 
-    public function __construct($shop_id, $amount, $invoice, $public_key) {
+    public function __construct($shop_id, $amount, $invoice, $public_key, $customfields = []) {
         $this->url = "https://gidpay.ru/api/pay";
         $this->invoice = $invoice;
         $this->amount = $amount;
         $this->public_key = $public_key;
         $this->shop_id = $shop_id;
+        $this->custom = $customfields;
     }
 
     public function getUrl() {
@@ -21,7 +23,8 @@ Class Create {
             'transaction_id' => $this->invoice,
             'amount' => $this->amount,
             'public_key' => $this->public_key,
-            'method' => 'full'
+            'method' => 'full',
+            'custom_fields' => $this->custom
         ];
         
         $curl = curl_init();
@@ -35,7 +38,7 @@ Class Create {
         $resp = json_decode(curl_exec($curl), true);
         curl_close($curl);
         
-        if($resp['status'] === 'error'){
+        if($resp['status'] == 'error'){
             return $resp['error'];
         }
 
