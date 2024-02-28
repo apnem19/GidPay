@@ -24,7 +24,7 @@ Class Create {
             'amount' => $this->amount,
             'public_key' => $this->public_key,
             'method' => 'full',
-            'custom_fields' => $this->custom
+            'custom_fields' => json_encode($this->custom)
         ];
         
         $curl = curl_init();
