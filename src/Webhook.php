@@ -17,7 +17,9 @@ Class Webhook{
     }
 
     public function check(){
+        
         $sign = md5($this->shop_id.":".$this->amount.":".$this->secret.":".$this->invoice);
+
         if($sign !== $this->sign){
             return false;
         }
